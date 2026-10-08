@@ -328,7 +328,7 @@ def pagina_home():
   </div>
 </section>
 
-<section id="sobre">
+<section id="sobre" class="sec-tint">
   <div class="wrap split">
     <figure class="split-figure" data-reveal><img src="assets/img/consultorio.jpg" alt="{D["nome"]} no consultório da {D["clinica"]}" loading="lazy" width="825" height="1100"></figure>
     <div class="split-text" data-reveal>
@@ -359,7 +359,7 @@ def pagina_home():
   </div>
 </section>
 
-<section id="espaco">
+<section id="espaco" class="sec-tint">
   <div class="wrap">
     <div class="sec-head" data-reveal>
       <p class="kicker">O espaço</p>
@@ -512,7 +512,7 @@ def pagina_sub(slug):
   </div>
 </section>
 
-<section>
+<section class="sec-tint">
   <div class="wrap">
     <div class="sec-head" data-reveal><h2>{s["ck_t"]}</h2><p>{s["ck_p"]}</p></div>
     <ul class="checks" data-reveal>
@@ -525,7 +525,7 @@ def pagina_sub(slug):
 {consultorio(p)}
 {faq(s["faq"])}
 
-<section>
+<section class="sec-alt">
   <div class="wrap">
     <div class="sec-head" data-reveal><p class="kicker">Outros atendimentos</p><h2>Também na consulta com a Dra. Tarcila</h2></div>
     <div class="cards cards-3">
