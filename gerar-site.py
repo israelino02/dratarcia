@@ -528,7 +528,7 @@ def pagina_sub(slug):
 <section>
   <div class="wrap">
     <div class="sec-head" data-reveal><p class="kicker">Outros atendimentos</p><h2>Também na consulta com a Dra. Tarcila</h2></div>
-    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="cards cards-3">
 {outros}
     </div>
   </div>
