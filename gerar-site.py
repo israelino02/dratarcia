@@ -58,6 +58,10 @@ SPRITE = '''<svg width="0" height="0" style="position:absolute" aria-hidden="tru
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l4.5 4.5 10.5-10.5"/></symbol>
   <symbol id="i-review" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M12 8.2l.9 1.9 2 .3-1.5 1.4.4 2-1.8-1-1.8 1 .4-2-1.5-1.4 2-.3z"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-prenatal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M12 9.6c-.9-1.1-2.6-1.1-3.3.1-.6 1.1.2 2.1 3.3 4.4 3.1-2.3 3.9-3.3 3.3-4.4-.7-1.2-2.4-1.2-3.3-.1z"/></symbol>
+  <symbol id="i-assist" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M12 8.2v7.6M8.2 12h7.6"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.5L12 4l8 7.5"/><path d="M6.5 10v9.3h11V10"/><path d="M10 19.3v-5h4v5"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3.3" y="6.5" width="12" height="11" rx="2.2"/><path d="M15.3 10.3l5.2-3v9.4l-5.2-3z"/></symbol>
   <symbol id="i-steth" viewBox="0 0 24 24"><path d="M6 3.5v5a4 4 0 0 0 8 0v-5"/><path d="M10 12.5v2.5a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></symbol>
   <symbol id="i-grow" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 16.5v-3.5M12 16.5V9M17 16.5V5.5"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.2 4.2 0 0 1 12 7.2a4.2 4.2 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol>
@@ -267,7 +271,16 @@ TEMAS = [
     ("Sono do bebê e da criança", "Rotina e hábitos que ajudam a família inteira a dormir.", "sono do bebê"),
     ("Orientação sobre vacinas", "Caderneta em dia, com explicação de cada dose.", "vacinas"),
     ("Consulta do adolescente", "Puberdade, alimentação, telas e saúde emocional.", "consulta do adolescente"),
-    ("Consulta com gestantes", "Conhecer a pediatra antes do bebê chegar.", "consulta com gestante"),
+    ("Amamentação e desmame", "Orientação sobre amamentação, desmame e introdução de novos hábitos alimentares.", "amamentação e desmame"),
+]
+
+SERVICOS = [
+    ("steth", "Consulta Pediátrica", "Acompanhamento individualizado da criança, com avaliação do crescimento, desenvolvimento, alimentação, sono, vacinação e suplementação, além das necessidades específicas de cada fase da infância.", "consulta pediátrica"),
+    ("heart", "Consulta do Recém Nascido", "Avaliação completa dos primeiros dias de vida, incluindo peso, amamentação, icterícia, eliminações, coto umbilical, sono seguro, testes neonatais, vacinação e adaptação do bebê em casa.", "consulta do recém nascido"),
+    ("prenatal", "Consulta Pediátrica Pré Natal", "Consulta realizada ainda durante a gestação para preparar a família para a chegada do bebê. Falamos sobre sala de parto, primeiros cuidados, amamentação, vacinas, testes neonatais, suplementação e as principais dúvidas sobre os primeiros dias de vida.", "consulta pediátrica pré natal"),
+    ("assist", "Assistência em Sala de Parto", "Acompanhamento pediátrico desde o nascimento, com avaliação e assistência imediata ao recém nascido e realização das intervenções necessárias para uma adaptação segura à vida extrauterina.", "assistência em sala de parto"),
+    ("home", "Atendimento Pediátrico Domiciliar", "Consulta completa no conforto da casa da família, especialmente conveniente para recém nascidos, bebês pequenos e situações em que o deslocamento pode ser mais difícil.", "atendimento pediátrico domiciliar"),
+    ("video", "Telemedicina", "Atendimento pediátrico à distância para situações adequadas a essa modalidade, orientações, acompanhamento e esclarecimento de dúvidas, com indicação de avaliação presencial sempre que necessário.", "telemedicina"),
 ]
 GALERIA = [
     ("fachada.jpg", "Fachada da Clínica Teor", 880, 1100),
@@ -297,6 +310,12 @@ def pagina_home():
         <p>{d}</p>
         <a href="{wa("Olá! Vim pelo site e gostaria de saber mais sobre " + m + " com a Dra. Tarcila.")}" target="_blank" rel="noopener">Saber mais {ico("arrow")}</a>
       </div>''' for t, d, m in TEMAS)
+    servicos = "\n".join(f'''      <a class="card" href="{wa("Olá! Vim pelo site e gostaria de agendar " + m + " com a Dra. Tarcila.")}" target="_blank" rel="noopener" data-reveal>
+        <span class="ico">{ico(i)}</span>
+        <h3>{t}</h3>
+        <p>{d}</p>
+        <span class="more">{ico("wa")}Falar no WhatsApp</span>
+      </a>''' for i, t, d, m in SERVICOS)
     galeria = "\n".join(f'''      <button type="button" aria-label="Ampliar foto: {leg}"><figure style="margin:0;height:100%"><img src="assets/img/{arq}" alt="{leg}, {D["clinica"]}, {D["cidade"]}" loading="lazy" width="{w}" height="{h}"><figcaption>{leg}</figcaption></figure></button>''' for arq, leg, w, h in GALERIA)
 
     corpo = f'''
@@ -336,17 +355,34 @@ def pagina_home():
       <h2 class="sec-title">Pediatra, mãe e defensora da consulta sem pressa</h2>
       <p style="margin-top:18px">Sou pediatra em {D["cidade"]} e acredito que cada consulta precisa de tempo. Tempo para ouvir o que a família percebe em casa, examinar a criança por inteiro e explicar o porquê de cada orientação, sem pressa e sem termos difíceis.</p>
       <p>Meu trabalho vai além do peso e da medida: acompanho crescimento, desenvolvimento, alimentação, sono e comportamento, para que os pais saiam da consulta seguros sobre o próximo passo.</p>
+      <p>Atendo com hora marcada no consultório e também em atendimento domiciliar, para quando o deslocamento é mais difícil. Faço assistência em sala de parto, com consulta pediátrica pré natal para preparar a família antes do nascimento, e atuo na maternidade do Hospital Santo Antônio, em {D["cidade"]}.</p>
+      <p>Atuo há 10 anos como médica de pronto atendimento e tenho 7 anos de experiência em sala de parto humanizada de médio e alto risco. Revalidei meu diploma em Portugal, onde trabalhei na pediatria dos sistemas público e privado.</p>
       <div class="creds">
         <div class="cred"><b>UNIC</b><span>Graduação em Medicina</span></div>
         <div class="cred"><b>UFMT</b><span>Residência em Pediatria</span></div>
-        <div class="cred"><b>Lisboa, Portugal</b><span>Doutorado</span></div>
+        <div class="cred"><b>Lisboa, Portugal</b><span>Doutorado em Ciência da Cognição, Linguagem e Neurociência</span></div>
+        <div class="cred"><b>Universidade Católica Portuguesa</b><span>Pós graduação em Neonatologia</span></div>
+        <div class="cred"><b>Sociedade Portuguesa de Infectologia Pediátrica</b><span>Pós graduação em Infectologia Pediátrica</span></div>
         <div class="cred"><b>{D["crm"]} · {D["rqe"]}</b><span>Registro de especialista em Pediatria</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec-alt">
+<section id="servicos" class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="kicker">Serviços</p>
+      <h2>Pediatria que acompanha cada fase, do nascimento à infância</h2>
+      <p>Com ciência, cuidado e atenção individualizada, do consultório à sala de parto.</p>
+    </div>
+    <div class="cards">
+{servicos}
+    </div>
+  </div>
+</section>
+
+<section class="sec-tint">
   <div class="wrap">
     <div class="sec-head" data-reveal>
       <p class="kicker">Na consulta</p>
@@ -359,7 +395,7 @@ def pagina_home():
   </div>
 </section>
 
-<section id="espaco" class="sec-tint">
+<section id="espaco" class="sec-alt">
   <div class="wrap">
     <div class="sec-head" data-reveal>
       <p class="kicker">O espaço</p>
