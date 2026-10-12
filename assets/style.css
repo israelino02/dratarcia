@@ -618,7 +618,11 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .js .reveal{opacity:1;transform:none}
+  /* a fita de atendimentos é parte do visual e corre sempre, devagar, mesmo com "reduzir movimento" ligado */
+  .marquee-track{animation-duration:52s!important;animation-iteration-count:infinite!important}
 }
+/* a fita nunca pausa: nem ao tocar nem ao passar o mouse */
+.marquee-track{animation-play-state:running!important}
 
 /* ═══ TOPO COM VÍDEO DE FUNDO ═══
    o vídeo do bebê ocupa o topo inteiro, espelhado para o bebê ficar à direita
