@@ -551,7 +551,7 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
   .hero-badges{flex-direction:column;gap:8px}
 
   /* atendimentos: 2 por linha, o texto abre ao tocar */
-  .cards,.cards-sm{grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+  .cards,.cards-sm{grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}
   .card{padding:20px 16px;min-height:150px;cursor:pointer}
   .card-ic{width:42px;height:42px;border-radius:13px;margin-bottom:14px}
   .card-ic .ic{width:20px;height:20px}
