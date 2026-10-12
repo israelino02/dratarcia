@@ -213,11 +213,8 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
   transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s;
 }
 .card::after{content:'';position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--blush),var(--azul-esc));transition:width .5s var(--ease)}
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
-.card:hover::after{width:100%}
 .card-ic{width:50px;height:50px;border-radius:16px;background:var(--rosa-claro);color:var(--rose-txt);display:grid;place-items:center;margin-bottom:20px;transition:transform .45s var(--ease)}
 .card-ic .ic{width:24px;height:24px}
-.card:hover .card-ic{transform:rotate(-8deg) scale(1.08)}
 .card:nth-child(3n+2) .card-ic{background:var(--azul-claro);color:#5C6B80}
 .card h3{font-size:23px;margin-bottom:10px}
 .card p{font-size:14.8px;color:var(--suave);line-height:1.65;flex:1}
@@ -225,7 +222,6 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 .card-link .ic{width:16px;height:16px}
 /* o cartão inteiro leva para a página, sem perder o link real */
 .card-link::before{content:'';position:absolute;inset:0;z-index:1}
-.card:hover .card-link{gap:12px}
 
 .card-featured{background:var(--taupe-esc);border-color:var(--taupe-esc)}
 .card-featured h3{color:var(--creme)}
@@ -312,7 +308,6 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 .temas-sec{background:var(--azul-claro)}
 .temas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .tema{background:var(--branco);border-radius:var(--r);padding:28px 26px;border:1px solid rgba(127,143,166,.16);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.tema:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
 .tema-n{display:block;font-family:var(--serif);font-size:20px;color:var(--azul-esc);margin-bottom:12px}
 .tema h3{font-size:21px;margin-bottom:8px}
 .tema p{font-size:14.5px;color:var(--suave)}
@@ -661,4 +656,18 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
   .hero-media::after{background:linear-gradient(180deg,rgba(255,253,251,.06) 0%,rgba(250,246,242,0) 50%,rgba(250,246,242,.85) 88%,var(--creme) 100%)}
   .hero-in{padding-top:calc(var(--mh) - 34px)}
 }
+}
+
+/* efeitos de passar o mouse: só em aparelhos com mouse. No celular o :hover fica preso
+   depois do toque e deixava o cartão tocado deslocado em relação aos outros */
+@media(hover:hover) and (pointer:fine){
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+  .card:hover::after{width:100%}
+  .card:hover .card-ic{transform:rotate(-8deg) scale(1.08)}
+  .card:hover .card-link{gap:12px}
+  .tema:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+}
+/* celular: todos os cartões de atendimento com a mesma altura (a linha só cresce quando um abre) */
+@media(max-width:620px){
+  .cards .card:not(.card-cta),.cards-sm .card{min-height:178px}
 }

@@ -124,7 +124,7 @@ GALERIA = [
 ]
 
 LOCAIS = [
-    ("pin", "Consultório", f'{D["clinica"]}, bairro {D["bairro"]}, com hora marcada.'),
+    ("pin", "Consultório", f'{D["clinica"]}, com hora marcada.'),
     ("assist", "Maternidade", f'Sala de parto e acompanhamento do recém nascido no {D["hospital"]}.'),
     ("home", "Em casa", "Atendimento domiciliar em Sinop, para recém nascidos e bebês pequenos."),
     ("video", "Telemedicina", "Para famílias de Sinop e de outras cidades de Mato Grosso, quando o caso permite."),
@@ -256,7 +256,7 @@ def header(atual=None):
     return f'''
 <div class="topbar">
   <div class="wrap topbar-in">
-    <span class="tb-item">{ico("pin")}{D["cidade"]}, {D["uf"]} · {D["bairro"]}</span>
+    <span class="tb-item">{ico("pin")}{D["cidade"]}, {D["uf"]}</span>
     <span class="tb-item tb-hide">Atendimento particular com hora marcada</span>
     <a class="tb-link" href="{wa()}" target="_blank" rel="noopener">{ico("wa")}{D["tel_txt"]}</a>
   </div>
@@ -309,7 +309,7 @@ def contato():
     return f'''
 <section class="section contato" id="contato">
   <div class="wrap">
-    {sec_head("Agende a consulta", "Pediatra em Sinop, no bairro <em>Santa Cecília</em>", f"Consultório com hora marcada na {D['clinica']}. E também na maternidade, em casa e por telemedicina.", claro=True)}
+    {sec_head("Agende a consulta", "Pediatra em <em>Sinop, Mato Grosso</em>", f"Consultório com hora marcada na {D['clinica']}. E também na maternidade, em casa e por telemedicina.", claro=True)}
     <div class="locais">
 {locais}
     </div>
@@ -451,7 +451,7 @@ def pagina_home():
     <div class="hero-copy">
       <div class="hero-id reveal"><img src="/assets/img/dra-tarcila-pediatra-sinop.jpg" alt="" width="780" height="975"><span><b>{D["nome"]}</b><small>Pediatra · {D["crm"]} · {D["rqe"]}</small></span></div>
       <h1 class="reveal"><span class="h1-kw">Pediatra em {D["cidade"]}, {D["uf"]}<span class="sr">. </span></span>Os primeiros meses são cheios de dúvidas. <em>Você não precisa passar por eles sozinha.</em></h1>
-      <p class="lede reveal d2">Uma pediatra que acompanha seu filho de perto, examina com calma, ouve o que você percebe em casa e explica cada orientação com clareza. Da sala de parto à adolescência, com hora marcada na {D["clinica"]}, no bairro {D["bairro"]}.</p>
+      <p class="lede reveal d2">Uma pediatra que acompanha seu filho de perto, examina com calma, ouve o que você percebe em casa e explica cada orientação com clareza. Da sala de parto à adolescência, com hora marcada na {D["clinica"]}.</p>
       <div class="hero-cta reveal d3">
         <a class="btn btn-1 btn-lg" href="{wa()}" target="_blank" rel="noopener">{ico("wa")}Agendar pelo WhatsApp</a>
         <a class="btn btn-ghost btn-lg" href="#atendimentos">Conhecer os atendimentos</a>
@@ -479,7 +479,7 @@ def pagina_home():
 
 <section class="section atend" id="atendimentos">
   <div class="wrap">
-    {sec_head("Atendimentos", "Pediatria que acompanha cada fase, <em>do nascimento à adolescência</em>", "Com ciência, cuidado e atenção individualizada, do consultório à sala de parto.")}
+    {sec_head("Atendimentos", "Pediatria que acompanha cada fase, <em>do&nbsp;nascimento à adolescência</em>", "Com ciência, cuidado e atenção individualizada, do consultório à sala de parto.")}
     <div class="cards">
 {cards}
       <article class="card card-cta reveal">
@@ -501,7 +501,7 @@ def pagina_home():
         <p>Quando chega o grande dia, eu não estou entrando apenas em uma sala de parto. Estou chegando para acompanhar uma história que eu já conheço.</p>
         <cite>{D["nome"]}</cite>
       </blockquote>
-      <a class="btn btn-1 reveal d4" href="{wa(msg_gest)}" target="_blank" rel="noopener">{ico("wa")}Conversar sobre o nascimento do meu bebê</a>
+      <a class="btn btn-1 reveal d4" href="{wa(msg_gest)}" target="_blank" rel="noopener">{ico("wa")}Conversar sobre o nascimento do&nbsp;meu&nbsp;bebê</a>
     </div>
     <ol class="jornada">
       <li class="etapa reveal">
@@ -587,7 +587,7 @@ def pagina_home():
 
 <section class="section espaco" id="espaco">
   <div class="wrap">
-    {sec_head("O espaço", "Um consultório pensado para <em>receber a família</em>", f"Recepção ampla, sala de espera confortável e estacionamento em frente, na {D['clinica']}, bairro {D['bairro']}.")}
+    {sec_head("O espaço", "Um consultório pensado para <em>receber a família</em>", f"Recepção ampla, sala de espera confortável e estacionamento em frente, na {D['clinica']}.")}
   </div>
   <div class="gal-wrap reveal">
     <div class="gallery" id="galeria">
@@ -604,7 +604,7 @@ def pagina_home():
 {contato()}
 {faq(FAQ_HOME)}'''
     titulo = f"Pediatra em Sinop MT | {D['nome']}"
-    desc = f"Pediatra em Sinop, MT, no bairro Santa Cecília. Consulta pediátrica, recém nascido, pré natal, sala de parto, atendimento em casa e telemedicina. {D['crm']}."
+    desc = f"Pediatra em Sinop, MT. Consulta pediátrica, recém nascido, pré natal, sala de parto, atendimento em casa e telemedicina. {D['crm']}."
     site_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": D["nome"], "url": D["dominio"] + "/", "inLanguage": "pt-BR"}
     return head(titulo, desc, "/", [faq_ld(FAQ_HOME), site_ld], "/assets/img/bebe-hero-poster.jpg") + header() + corpo + footer()
 
@@ -612,8 +612,8 @@ def pagina_home():
 SUB = {
 "consulta": dict(
     titulo="Consulta com Pediatra em Sinop MT | " + D["nome"],
-    desc="Consulta pediátrica em Sinop, MT, no bairro Santa Cecília. Febre, tosse, alimentação, sono e desenvolvimento avaliados com tempo para a família. CRM/MT 9131 · RQE 6722.",
-    h1="Procurando pediatra em Sinop?", sub="Consulta pediátrica no bairro Santa Cecília, Sinop, MT",
+    desc="Consulta pediátrica em Sinop, MT. Febre, tosse, alimentação, sono e desenvolvimento avaliados com tempo para a família. CRM/MT 9131 · RQE 6722.",
+    h1="Procurando pediatra em Sinop?", sub="Consulta pediátrica em Sinop, MT",
     lead="Na consulta, a criança é vista por inteiro e a família tem espaço para perguntar. A Dra. Tarcila examina com calma, explica o que encontrou e deixa claro o que fazer em casa e quando voltar.",
     cta="Agendar consulta pediátrica", msg="Olá! Vim pelo site e gostaria de agendar uma consulta pediátrica com a Dra. Tarcila.",
     ev_t="O que é avaliado na consulta", ev_p="Queixas parecidas podem ter causas diferentes. A consulta serve para entender o que está acontecendo antes de qualquer conduta.",
@@ -758,7 +758,7 @@ SUB = {
          ("A telemedicina substitui a consulta presencial?", "Não. Ela complementa o acompanhamento. Exame físico, primeira consulta do recém nascido e situações de urgência pedem atendimento presencial.")]),
 "puericultura": dict(
     titulo="Puericultura em Sinop MT | Acompanhamento do Bebê e da Criança | Dra. Tarcila",
-    desc="Puericultura em Sinop, MT: acompanhamento de rotina do bebê e da criança, com peso, altura, desenvolvimento, alimentação, sono e vacinas. Pediatra no bairro Santa Cecília.",
+    desc="Puericultura em Sinop, MT: acompanhamento de rotina do bebê e da criança, com peso, altura, desenvolvimento, alimentação, sono e vacinas. Pediatra em Sinop.",
     h1="Seu filho está crescendo bem?", sub="Puericultura em Sinop, MT",
     lead="Puericultura é o acompanhamento de rotina da criança, mesmo quando está tudo bem. É nessas consultas que a pediatra percebe cedo o que precisa de atenção e responde as dúvidas antes que virem preocupação.",
     cta="Agendar puericultura", msg="Olá! Vim pelo site e gostaria de agendar uma consulta de puericultura com a Dra. Tarcila.",
@@ -782,7 +782,7 @@ SUB = {
          ("O que levar?", "A Caderneta da Criança, para registrar medidas e vacinas, e as dúvidas da família.")]),
 "alimentacao": dict(
     titulo="Introdução Alimentar em Sinop MT | Pediatra " + D["nome"],
-    desc="Orientação de introdução alimentar em Sinop, MT: quando começar, sinais de prontidão, como oferecer e como montar o prato do bebê. Pediatra no bairro Santa Cecília.",
+    desc="Orientação de introdução alimentar em Sinop, MT: quando começar, sinais de prontidão, como oferecer e como montar o prato do bebê. Pediatra em Sinop.",
     h1="Hora de começar a comer?", sub="Introdução alimentar em Sinop, MT",
     lead="A introdução alimentar costuma começar por volta dos 6 meses e traz muitas dúvidas. A consulta ajuda a família a começar com segurança e a montar um plano que caiba na rotina da casa.",
     cta="Agendar orientação alimentar", msg="Olá! Vim pelo site e gostaria de agendar uma orientação de introdução alimentar com a Dra. Tarcila.",
