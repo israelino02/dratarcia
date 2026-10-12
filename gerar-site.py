@@ -276,8 +276,8 @@ def header(atual=None):
       <a class="nav-link" href="/#gestantes">Gestantes</a>
       <a class="nav-link" href="/#sobre">Sobre</a>
       <a class="nav-link" href="/#espaco">Consultório</a>
-      <a class="nav-link" href="/#duvidas">Dúvidas</a>
       <a class="nav-link" href="/#contato">Contato</a>
+      <a class="nav-link" href="/#duvidas">Dúvidas</a>
       <a class="btn btn-1 nav-cta" href="{wa()}" target="_blank" rel="noopener">{ico("wa")}Agendar consulta</a>
     </nav>
     <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
@@ -603,8 +603,8 @@ def pagina_home():
     </div>
   </div>
 </section>
-{faq(FAQ_HOME)}
-{contato()}'''
+{contato()}
+{faq(FAQ_HOME)}'''
     titulo = f"Pediatra em Sinop MT | {D['nome']}"
     desc = f"Pediatra em Sinop, MT, no bairro Santa Cecília. Consulta pediátrica, recém nascido, pré natal, sala de parto, atendimento em casa e telemedicina. {D['crm']}."
     site_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": D["nome"], "url": D["dominio"] + "/", "inLanguage": "pt-BR"}
@@ -868,8 +868,6 @@ def pagina_sub(slug):
     </aside>
   </div>
 </section>
-{faq(s["faq"])}
-
 <section class="section outros">
   <div class="wrap">
     {sec_head("Outros atendimentos", "Também com a <em>Dra. Tarcila</em>", f"Atendimentos em {D['cidade']}, do pré natal à adolescência.")}
@@ -878,7 +876,8 @@ def pagina_sub(slug):
     </div>
   </div>
 </section>
-{contato()}'''
+{contato()}
+{faq(s["faq"])}'''
     crumbs_ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Início", "item": D["dominio"] + "/"},
         {"@type": "ListItem", "position": 2, "name": rot, "item": f'{D["dominio"]}/{slug}/'}]}
