@@ -94,6 +94,10 @@
     });
   }
 
+  /* ── vídeo do topo: quem prefere menos movimento vê só a imagem ── */
+  var video = document.getElementById('heroVideo');
+  if (video && reduzido) { video.removeAttribute('autoplay'); video.pause(); }
+
   /* ── contadores ── */
   function conta(el) {
     var alvo = parseInt(el.getAttribute('data-count'), 10) || 0;

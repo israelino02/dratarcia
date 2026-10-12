@@ -464,19 +464,15 @@ def pagina_home():
       <div class="reveal d4">{prova()}</div>
     </div>
     <div class="hero-media reveal d2">
-      <span class="shape shape-a" aria-hidden="true"></span>
-      <span class="shape shape-b" aria-hidden="true"></span>
-      <figure class="hero-photo">
-        <img src="/assets/img/dra-tarcila-pediatra-sinop.jpg" alt="{D["nome"]}, pediatra em {D["cidade"]}, {D["uf"]}" width="780" height="975" fetchpriority="high">
+      <figure class="hero-video">
+        <video autoplay muted loop playsinline preload="auto" poster="/assets/img/bebe-hero-poster.jpg" width="832" height="464" aria-label="Bebê sorrindo durante a consulta com a pediatra" id="heroVideo">
+          <source src="/assets/video/bebe-hero.mp4" type="video/mp4">
+        </video>
       </figure>
-      <div class="float-card fa">
-        <span class="fc-ic">{ico("cap")}</span>
-        <div><strong>Doutorado em Lisboa</strong><span>Ciência da Cognição, Linguagem e Neurociência</span></div>
-      </div>
-      <div class="float-card fb">
-        <span class="fc-ic">{ico("assist")}</span>
-        <div><strong>Sala de parto</strong><span>{D["hospital"]}, {D["cidade"]}</span></div>
-      </div>
+      <ul class="hero-facts">
+        <li><span class="fc-ic">{ico("cap")}</span><div><strong>Doutorado em Lisboa</strong><span>Ciência da Cognição, Linguagem e Neurociência</span></div></li>
+        <li><span class="fc-ic">{ico("assist")}</span><div><strong>Sala de parto</strong><span>{D["hospital"]}, {D["cidade"]}</span></div></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -612,7 +608,7 @@ def pagina_home():
     titulo = f"Pediatra em Sinop MT | {D['nome']}"
     desc = f"Pediatra em Sinop, MT, no bairro Santa Cecília. Consulta pediátrica, recém nascido, pré natal, sala de parto, atendimento em casa e telemedicina. {D['crm']}."
     site_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": D["nome"], "url": D["dominio"] + "/", "inLanguage": "pt-BR"}
-    return head(titulo, desc, "/", [faq_ld(FAQ_HOME), site_ld], "/assets/img/dra-tarcila-pediatra-sinop.jpg") + header() + corpo + footer()
+    return head(titulo, desc, "/", [faq_ld(FAQ_HOME), site_ld], "/assets/img/bebe-hero-poster.jpg") + header() + corpo + footer()
 
 # ---------------------------------------------------------------- páginas por palavra chave
 SUB = {
