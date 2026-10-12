@@ -671,3 +671,9 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 @media(max-width:620px){
   .cards .card:not(.card-cta),.cards-sm .card{min-height:178px}
 }
+
+/* celular: o fecho da seção de gestantes fica sempre em 2 linhas, uma frase em cada */
+@media(max-width:620px){
+  .gest-fecho{font-size:min(23px,5vw);line-height:1.5}
+  .gest-fecho em{display:block;white-space:nowrap}
+}
