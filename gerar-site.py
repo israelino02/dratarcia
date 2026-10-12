@@ -469,10 +469,6 @@ def pagina_home():
           <source src="/assets/video/bebe-hero.mp4" type="video/mp4">
         </video>
       </figure>
-      <ul class="hero-facts">
-        <li><span class="fc-ic">{ico("cap")}</span><div><strong>Doutorado em Lisboa</strong><span>Ciência da Cognição, Linguagem e Neurociência</span></div></li>
-        <li><span class="fc-ic">{ico("assist")}</span><div><strong>Sala de parto</strong><span>{D["hospital"]}, {D["cidade"]}</span></div></li>
-      </ul>
     </div>
   </div>
 </section>
