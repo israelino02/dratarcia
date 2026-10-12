@@ -94,9 +94,25 @@
     });
   }
 
-  /* ── vídeo do topo: quem prefere menos movimento vê só a imagem ── */
+  /* ── vídeo do topo: toca sozinho, em silêncio. Se o navegador bloquear o autoplay
+     (economia de bateria no iPhone, por exemplo), tenta de novo no primeiro toque ou rolagem ── */
   var video = document.getElementById('heroVideo');
-  if (video && reduzido) { video.removeAttribute('autoplay'); video.pause(); }
+  if (video) {
+    video.muted = true;
+    video.defaultMuted = true;
+    var toca = function () {
+      if (!video.paused) return;
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+    };
+    toca();
+    video.addEventListener('loadeddata', toca);
+    video.addEventListener('canplay', toca);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) toca(); });
+    ['touchstart', 'scroll', 'click', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, function once() { toca(); window.removeEventListener(ev, once); }, { passive: true });
+    });
+  }
 
   /* ── contadores ── */
   function conta(el) {

@@ -638,7 +638,20 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 .hero-video video{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scaleX(-1);display:block}
 .hero-media::after{content:'';position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(90deg,rgba(255,253,251,.80) 0%,rgba(255,253,251,.66) 45%,rgba(255,253,251,.34) 100%)}
+/* o iPhone mostra um botão de play quando bloqueia o autoplay: aqui ele nunca aparece */
+.hero-video video::-webkit-media-controls,
+.hero-video video::-webkit-media-controls-start-playback-button,
+.hero-video video::-webkit-media-controls-overlay-play-button,
+.hero-video video::-webkit-media-controls-panel{display:none!important;-webkit-appearance:none;opacity:0;pointer-events:none}
+.hero-video video{pointer-events:none}
+
+/* celular: o vídeo fica no alto, inteiro (cabeça e tronco do bebê), e o texto desce
+   logo abaixo, sobre o fundo creme, com a imagem se dissolvendo no creme */
 @media(max-width:920px){
-  .hero-media::after{background:linear-gradient(180deg,rgba(255,253,251,.78) 0%,rgba(255,253,251,.66) 100%)}
-  .hero-video video{object-position:66% 50%}
+  .hero{--mh:min(82vw,560px);padding-top:0}
+  .hero-media{top:0;left:0;right:0;bottom:auto;height:var(--mh)}
+  .hero-video video{object-position:58% 55%}
+  .hero-media::after{background:linear-gradient(180deg,rgba(255,253,251,.06) 0%,rgba(250,246,242,0) 50%,rgba(250,246,242,.85) 88%,var(--creme) 100%)}
+  .hero-in{padding-top:calc(var(--mh) - 34px)}
+}
 }
