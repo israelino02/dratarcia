@@ -561,7 +561,7 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
   .card.open::before{transform:rotate(45deg)}
   .card-tag{display:none}
   .card-cta{padding:24px 20px;min-height:0;cursor:default}
-  .card-cta p{max-height:none;opacity:1;font-size:14px;margin-top:0}
+  .card-cta p{max-height:none;opacity:1;font-size:14px;margin-top:0;flex:none;overflow:visible}
 
   .quote p{font-size:19px}
   .quote{padding:22px 20px 20px 22px}
