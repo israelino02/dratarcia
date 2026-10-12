@@ -94,10 +94,12 @@
     });
   }
 
-  /* ── vídeo do topo: toca sozinho, em silêncio. Se o navegador bloquear o autoplay
-     (economia de bateria no iPhone, por exemplo), tenta de novo no primeiro toque ou rolagem ── */
+  /* ── vídeo do topo: toca sozinho, em silêncio, e só aparece quando de fato começa.
+     Se o navegador bloquear (economia de energia no iPhone), entra a versão animada em imagem
+     e o vídeo ainda tenta de novo no primeiro toque ou rolagem ── */
   var video = document.getElementById('heroVideo');
-  if (video) {
+  var fig = document.getElementById('heroFig');
+  if (video && fig) {
     video.muted = true;
     video.defaultMuted = true;
     var toca = function () {
@@ -105,6 +107,7 @@
       var p = video.play();
       if (p && p.catch) p.catch(function () {});
     };
+    video.addEventListener('playing', function () { fig.classList.add('is-playing'); });
     toca();
     video.addEventListener('loadeddata', toca);
     video.addEventListener('canplay', toca);
@@ -112,6 +115,12 @@
     ['touchstart', 'scroll', 'click', 'keydown'].forEach(function (ev) {
       window.addEventListener(ev, function once() { toca(); window.removeEventListener(ev, once); }, { passive: true });
     });
+    setTimeout(function () {
+      if (fig.classList.contains('is-playing')) return;
+      var anim = fig.querySelector('.hero-anim');
+      if (anim && !anim.getAttribute('src')) anim.setAttribute('src', anim.getAttribute('data-src'));
+      fig.classList.add('use-anim');
+    }, 1500);
   }
 
   /* ── contadores ── */

@@ -464,10 +464,12 @@ def pagina_home():
       <div class="reveal d4">{prova()}</div>
     </div>
     <div class="hero-media reveal d2">
-      <figure class="hero-video">
-        <video autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" tabindex="-1" poster="/assets/img/bebe-hero-poster.jpg" width="832" height="464" aria-label="Bebê sorrindo durante a consulta com a pediatra" id="heroVideo">
+      <figure class="hero-video" id="heroFig">
+        <img class="hero-still" src="/assets/img/bebe-hero-poster.jpg" alt="Bebê sorrindo durante a consulta com a pediatra" width="832" height="464" fetchpriority="high">
+        <video autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" tabindex="-1" aria-hidden="true" width="832" height="464" id="heroVideo">
           <source src="/assets/video/bebe-hero.mp4" type="video/mp4">
         </video>
+        <img class="hero-anim" data-src="/assets/img/bebe-hero-animado.webp" alt="" aria-hidden="true" width="640" height="358">
       </figure>
     </div>
   </div>
