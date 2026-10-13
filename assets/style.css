@@ -681,3 +681,9 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
   .gest-fecho{font-size:min(23px,5vw);line-height:1.5}
   .gest-fecho em{display:block;white-space:nowrap}
 }
+
+/* computador: o título de Atendimentos fica em 2 linhas (celular e tablet seguem como estão) */
+@media(min-width:921px){
+  .atend .sec-head{max-width:920px}
+  .atend .sec-head h2 em{display:block}
+}
