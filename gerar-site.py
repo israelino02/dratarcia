@@ -273,7 +273,7 @@ def header(atual=None):
         <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-atend" aria-label="Mostrar todos os atendimentos">{ico("chev")}</button>
         <div class="sub" id="sub-atend">{sub}</div>
       </div>
-      <a class="nav-link" href="/#gestantes">Gestantes</a>
+      <a class="nav-link" href="/#acompanhamento">Acompanhamento</a>
       <a class="nav-link" href="/#sobre">Sobre</a>
       <a class="nav-link" href="/#espaco">Consultório</a>
       <a class="nav-link" href="/#contato">Contato</a>
@@ -309,7 +309,7 @@ def contato():
     return f'''
 <section class="section contato" id="contato">
   <div class="wrap">
-    {sec_head("Agende a consulta", "Pediatra em <em>Sinop, Mato Grosso</em>", f"Consultório com hora marcada na {D['clinica']}. E também na maternidade, em casa e por telemedicina.", claro=True)}
+    {sec_head("Consultório e contato", "Pediatra em <em>Sinop, Mato Grosso</em>", f"Consultório com hora marcada na {D['clinica']}. E também na maternidade, em casa e por telemedicina.", claro=True)}
     <div class="locais">
 {locais}
     </div>
@@ -442,7 +442,7 @@ def pagina_home():
     form_br = "\n".join(f'          <li><b>{t}</b><span>{d}</span></li>' for t, d in FORMACAO_BR)
     form_pt = "\n".join(f'          <li><b>{t}</b><span>{d}</span></li>' for t, d in FORMACAO_PT)
     galeria = "\n".join(f'''      <button class="gal-item" type="button" data-src="/assets/img/{arq}" data-cap="{leg}" aria-label="Ampliar foto: {leg}"><img src="/assets/img/{arq}" alt="{leg}, {D["clinica"]}, {D["cidade"]}" loading="lazy" width="{w}" height="{h}"><span class="gal-cap">{leg}</span></button>''' for arq, leg, w, h in GALERIA)
-    msg_gest = "Olá! Estou gestante e gostaria de entender como funciona o acompanhamento da Dra. Tarcila no nascimento do meu bebê."
+    msg_gest = "Olá! Vim pelo site e gostaria de entender como funciona o acompanhamento da Dra. Tarcila."
 
     corpo = f'''
 <section class="hero">
@@ -450,11 +450,12 @@ def pagina_home():
   <div class="wrap hero-in">
     <div class="hero-copy">
       <div class="hero-id reveal"><img src="/assets/img/dra-tarcila-pediatra-sinop.jpg" alt="" width="780" height="975"><span><b>{D["nome"]}</b><small>Pediatra · {D["crm"]} · {D["rqe"]}</small></span></div>
-      <h1 class="reveal"><span class="h1-kw">Pediatra em {D["cidade"]}, {D["uf"]}<span class="sr">. </span></span>Os primeiros meses são cheios de dúvidas. <em>Você não precisa passar por eles sozinha.</em></h1>
-      <p class="lede reveal d2">Uma pediatra que acompanha seu filho de perto, examina com calma, ouve o que você percebe em casa e explica cada orientação com clareza. Da sala de parto à adolescência, com hora marcada na {D["clinica"]}.</p>
+      <h1 class="reveal"><span class="h1-kw">Pediatra em {D["cidade"]}, {D["uf"]}<span class="sr">. </span></span>Pediatria <em>Além do Peso e da Medida.</em></h1>
+      <p class="hero-promise reveal d1">Do nascimento à adolescência, um acompanhamento que olha para seu filho por inteiro.</p>
+      <p class="lede reveal d2">Crescimento, alimentação, sono, desenvolvimento, comportamento e tudo o que faz parte da vida do seu filho também têm espaço na minha consulta.</p>
       <div class="hero-cta reveal d3">
-        <a class="btn btn-1 btn-lg" href="{wa()}" target="_blank" rel="noopener">{ico("wa")}Agendar pelo WhatsApp</a>
-        <a class="btn btn-ghost btn-lg" href="#atendimentos">Conhecer os atendimentos</a>
+        <a class="btn btn-1 btn-lg" href="{wa()}" target="_blank" rel="noopener">{ico("wa")}Agende uma consulta</a>
+        <a class="btn btn-ghost btn-lg" href="#consulta-alem">Como é a consulta</a>
       </div>
       <ul class="hero-badges reveal d4">
         <li>{ico("check")}Atendimento particular</li>
@@ -477,6 +478,85 @@ def pagina_home():
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track">{marquee}</div></div>
 
+<section class="section consulta-alem" id="consulta-alem">
+  <div class="wrap">
+    <div class="alem-in">
+      <div class="alem-copy">
+        <p class="kicker reveal">A consulta</p>
+        <h2 class="reveal d1">Na minha consulta, seu filho não vem só para <em>pesar e medir.</em></h2>
+        <p class="reveal d2">Claro que eu acompanho o crescimento, examino, avalio o desenvolvimento e vejo se está tudo bem com a saúde dele.</p>
+        <p class="reveal d2">Mas também quero saber como ele dorme, como come, do que gosta de brincar, o que mudou na rotina e o que você tem observado em casa.</p>
+        <p class="reveal d3">Porque muitas coisas importantes sobre seu filho acontecem longe do consultório.</p>
+        <p class="alem-fecho reveal d3">É assim que eu pratico a Pediatria Além do Peso e da Medida.</p>
+      </div>
+      <div class="alem-lados">
+        <div class="lado reveal">
+          <span class="lado-tag">No consultório</span>
+          <h3>O que eu acompanho</h3>
+          <ul>
+            <li>{ico("check")}O crescimento</li>
+            <li>{ico("check")}O exame</li>
+            <li>{ico("check")}O desenvolvimento</li>
+            <li>{ico("check")}A saúde dele</li>
+          </ul>
+        </div>
+        <div class="lado lado-2 reveal d1">
+          <span class="lado-tag">Além dos números</span>
+          <h3>O que eu também quero saber</h3>
+          <ul>
+            <li>{ico("heart")}Como ele dorme</li>
+            <li>{ico("heart")}Como ele come</li>
+            <li>{ico("heart")}Do que gosta de brincar</li>
+            <li>{ico("heart")}O que mudou na rotina</li>
+            <li>{ico("heart")}O que você tem observado em casa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="alem-temas">
+      {sec_head("Na consulta", "O que também faz parte do <em>acompanhamento</em>", "Além do exame, cada consulta abre espaço para o que a família vive em casa.")}
+      <div class="temas">
+{temas}
+      </div>
+      <p class="fineprint">A indicação de qualquer conduta depende de consulta médica e avaliação individual.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section gestantes" id="acompanhamento">
+  <div class="wrap gest-in">
+    <div class="gest-copy">
+      <p class="kicker reveal">Acompanhamento</p>
+      <h2 class="reveal d1">Você pode conhecer a pediatra do seu bebê <em>antes mesmo de ele nascer.</em></h2>
+      <p class="reveal d2">E continuar contando com ela enquanto seu filho cresce.</p>
+      <blockquote class="quote reveal d3">
+        <p>A Pediatria acompanha seu filho enquanto ele cresce. E a nossa relação pode começar ainda na gestação.</p>
+      </blockquote>
+      <a class="btn btn-1 reveal d4" href="{wa(msg_gest)}" target="_blank" rel="noopener">{ico("wa")}Conversar pelo WhatsApp</a>
+    </div>
+    <ol class="jornada">
+      <li class="etapa reveal">
+        <span class="etapa-n">1</span>
+        <h3>Na gestação</h3>
+        <p>Podemos conversar sobre a chegada do bebê, os primeiros cuidados, amamentação e as dúvidas que já aparecem antes do nascimento.</p>
+        <div class="etapa-links"><a href="/prenatal/">Consulta pré natal {ico("arrow")}</a></div>
+      </li>
+      <li class="etapa reveal d1">
+        <span class="etapa-n">2</span>
+        <h3>No nascimento e nos primeiros dias</h3>
+        <p>Acompanhamos essa fase de adaptação, a alimentação, o ganho de peso, o sono e os cuidados que começam quando o bebê chega em casa.</p>
+        <div class="etapa-links"><a href="/bebe/">Recém nascido {ico("arrow")}</a><a href="/parto/">Sala de parto {ico("arrow")}</a></div>
+      </li>
+      <li class="etapa reveal d2">
+        <span class="etapa-n">3</span>
+        <h3>Durante a infância e a adolescência</h3>
+        <p>O acompanhamento continua com o crescimento, desenvolvimento, vacinação, alimentação, comportamento e as mudanças de cada idade.</p>
+        <div class="etapa-links"><a href="/consulta/">Consulta pediátrica {ico("arrow")}</a></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
 <section class="section atend" id="atendimentos">
   <div class="wrap">
     {sec_head("Atendimentos", "Pediatria que acompanha cada fase, <em>do&nbsp;nascimento à adolescência</em>", "Com ciência, cuidado e atenção individualizada, do consultório à sala de parto.")}
@@ -489,45 +569,6 @@ def pagina_home():
       </article>
     </div>
   </div>
-</section>
-
-<section class="section gestantes" id="gestantes">
-  <div class="wrap gest-in">
-    <div class="gest-copy">
-      <p class="kicker reveal">Para gestantes</p>
-      <h2 class="reveal d1">Você não precisa conhecer a pediatra do seu bebê <em>só depois que ele nasce.</em></h2>
-      <p class="reveal d2">O nascimento do seu bebê não precisa ser o primeiro encontro com a pediatra que estará ali com vocês. O acompanhamento começa antes: quando a Dra. Tarcila conhece a sua gestação, as suas expectativas e aquilo que importa para a sua família nesse nascimento.</p>
-      <blockquote class="quote reveal d3">
-        <p>Quando chega o grande dia, eu não estou entrando apenas em uma sala de parto. Estou chegando para acompanhar uma história que eu já conheço.</p>
-        <cite>{D["nome"]}</cite>
-      </blockquote>
-      <a class="btn btn-1 reveal d4" href="{wa(msg_gest)}" target="_blank" rel="noopener">{ico("wa")}Conversar sobre o nascimento do&nbsp;meu&nbsp;bebê</a>
-    </div>
-    <ol class="jornada">
-      <li class="etapa reveal">
-        <span class="etapa-n">1</span>
-        <span class="etapa-tag">Antes</span>
-        <h3>Na gestação</h3>
-        <p>Consulta pediátrica pré natal para conversar sobre sala de parto, amamentação, vacinas, testes neonatais e os primeiros dias em casa.</p>
-        <a href="/prenatal/">Consulta pré natal {ico("arrow")}</a>
-      </li>
-      <li class="etapa reveal d1">
-        <span class="etapa-n">2</span>
-        <span class="etapa-tag">Durante</span>
-        <h3>No nascimento</h3>
-        <p>Assistência em sala de parto, com avaliação e cuidado imediato ao recém nascido, na maternidade do {D["hospital"]}.</p>
-        <a href="/parto/">Sala de parto {ico("arrow")}</a>
-      </li>
-      <li class="etapa reveal d2">
-        <span class="etapa-n">3</span>
-        <span class="etapa-tag">Depois</span>
-        <h3>Na internação e em casa</h3>
-        <p>Acompanhamento durante a internação, apoio à amamentação e orientação dos próximos passos depois da alta, no consultório ou em casa.</p>
-        <a href="/bebe/">Recém nascido {ico("arrow")}</a>
-      </li>
-    </ol>
-  </div>
-  <p class="wrap gest-fecho reveal">Porque nascer é um momento. <em>Cuidar começa antes, e continua depois.</em></p>
 </section>
 
 <section class="section sobre" id="sobre">
@@ -575,16 +616,6 @@ def pagina_home():
   </div>
 </section>
 
-<section class="section temas-sec" id="na-consulta">
-  <div class="wrap">
-    {sec_head("Na consulta", "Consulta além do <em>peso e da medida</em>", "Além do exame, cada consulta abre espaço para o que a família vive em casa.")}
-    <div class="temas">
-{temas}
-    </div>
-    <p class="fineprint">A indicação de qualquer conduta depende de consulta médica e avaliação individual.</p>
-  </div>
-</section>
-
 <section class="section espaco" id="espaco">
   <div class="wrap">
     {sec_head("O espaço", "Um consultório pensado para <em>receber a família</em>", f"Recepção ampla, sala de espera confortável e estacionamento em frente, na {D['clinica']}.")}
@@ -601,10 +632,19 @@ def pagina_home():
     </div>
   </div>
 </section>
+<section class="section convite" id="convite">
+  <div class="wrap">
+    <p class="kicker reveal">Agende sua consulta</p>
+    <h2 class="reveal d1">Seu filho está crescendo. <em>E eu quero acompanhar muito mais do que os números da curva.</em></h2>
+    <p class="convite-texto reveal d2">Seja para começar o acompanhamento ainda na gestação, conhecer uma pediatra para seu bebê ou continuar cuidando da saúde do seu filho em outra fase da infância, podemos conversar.</p>
+    <p class="convite-nota reveal d2">Consultas pediátricas particulares em Sinop, MT.</p>
+    <a class="btn btn-1 btn-lg reveal d3" href="{wa()}" target="_blank" rel="noopener">{ico("wa")}Agende sua consulta</a>
+  </div>
+</section>
 {contato()}
 {faq(FAQ_HOME)}'''
     titulo = f"Pediatra em Sinop MT | {D['nome']}"
-    desc = f"Pediatra em Sinop, MT. Consulta pediátrica, recém nascido, pré natal, sala de parto, atendimento em casa e telemedicina. {D['crm']}."
+    desc = f"Pediatra em Sinop, MT. Pediatria além do peso e da medida, do nascimento à adolescência. Consulta, pré natal, sala de parto, atendimento em casa e telemedicina. {D['crm']}."
     site_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": D["nome"], "url": D["dominio"] + "/", "inLanguage": "pt-BR"}
     return head(titulo, desc, "/", [faq_ld(FAQ_HOME), site_ld], "/assets/img/bebe-hero-poster.jpg") + header() + corpo + footer()
 

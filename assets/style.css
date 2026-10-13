@@ -305,7 +305,6 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 .trilha li span{display:block;font-size:14.5px;color:rgba(250,246,242,.72);line-height:1.55;margin-top:2px}
 
 /* ═══ NA CONSULTA ═══ */
-.temas-sec{background:var(--azul-claro)}
 .temas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .tema{background:var(--branco);border-radius:var(--r);padding:28px 26px;border:1px solid rgba(127,143,166,.16);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
 .tema-n{display:block;font-family:var(--serif);font-size:20px;color:var(--azul-esc);margin-bottom:12px}
@@ -686,4 +685,50 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 @media(min-width:921px){
   .atend .sec-head{max-width:920px}
   .atend .sec-head h2 em{display:block}
+}
+
+/* ═══ NOVA ORDEM DA PÁGINA INICIAL ═══ */
+/* primeira dobra: a promessa logo abaixo do título */
+.hero-promise{font-family:var(--serif);font-size:clamp(21px,2.1vw,27px);line-height:1.3;color:var(--espresso);max-width:30ch;margin:0 0 18px}
+.hero .lede{margin-bottom:30px}
+
+/* segunda dobra: como é a consulta */
+.consulta-alem{background:var(--creme)}
+.alem-in{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.alem-copy h2{font-size:clamp(32px,3.9vw,50px);margin-bottom:24px}
+.alem-copy p{color:var(--suave);margin-bottom:16px;max-width:54ch}
+.alem-copy .alem-fecho{font-family:var(--serif);font-size:clamp(21px,2.1vw,26px);line-height:1.35;color:var(--espresso);margin:26px 0 0;padding-left:20px;border-left:3px solid var(--blush)}
+.alem-lados{display:grid;gap:16px}
+.lado{background:var(--branco);border:1px solid var(--linha);border-radius:var(--r-lg);padding:28px 30px 26px;box-shadow:var(--shadow-sm)}
+.lado-2{background:var(--rosa-claro);border-color:transparent}
+.lado-tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-txt);margin-bottom:8px}
+.lado h3{font-size:25px;margin-bottom:14px}
+.lado ul{display:grid;gap:9px}
+.lado li{display:flex;align-items:center;gap:11px;font-size:15.5px;color:var(--tinta)}
+.lado .ic{width:18px;height:18px;color:var(--blush-esc);stroke-width:2.2}
+.alem-temas{margin-top:96px}
+
+/* terceira dobra: do pré natal à adolescência */
+.etapa-links{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:10px}
+.etapa-links a{margin-top:0}
+.gest-copy > p:not(.kicker){font-family:var(--serif);font-size:clamp(21px,2.1vw,26px);line-height:1.35;color:var(--espresso);margin-bottom:26px}
+
+/* quinta dobra: convite final */
+.convite{position:relative;background:var(--rosa-claro);text-align:center;overflow:hidden}
+.convite .wrap{position:relative;max-width:860px}
+.convite .kicker{justify-content:center}
+.convite h2{font-size:clamp(32px,4vw,52px);margin-bottom:22px}
+.convite-texto{font-size:18px;color:var(--tinta);max-width:56ch;margin:0 auto 14px}
+.convite-nota{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--rose-txt);margin-bottom:30px}
+
+@media(max-width:920px){
+  .alem-in{grid-template-columns:1fr;gap:44px}
+  .alem-temas{margin-top:72px}
+}
+@media(max-width:620px){
+  .hero-promise{font-size:21px;max-width:none}
+  .lado{padding:22px 20px}
+  .lado h3{font-size:22px}
+  .alem-copy .alem-fecho{font-size:20px}
+  .convite-texto{font-size:16.5px}
 }
