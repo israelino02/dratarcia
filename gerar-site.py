@@ -13,7 +13,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 
 # Enquanto o domínio próprio não estiver ligado, o site fica fora do Google (noindex).
 # Ao publicar no domínio: PUBLICAR = True, conferir D["dominio"] e rodar de novo.
-PUBLICAR = False
+PUBLICAR = True
 
 # ---------------------------------------------------------------- dados
 D = {
