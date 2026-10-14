@@ -34,7 +34,7 @@ D = {
     "cid": "4104804225488390202",   # Perfil da Empresa no Google
     "lat": -11.834095, "lng": -55.535219,
     "nota": "5,0",
-    "dominio": "https://www.dratarcilabanagouro.com.br",  # sugestão, ainda não registrado
+    "dominio": "https://www.dratarcilapediatra.com.br",  # registrado em 13/10/2026 no CPF dela (Registro.br)
 }
 GOOGLE_PERFIL = f'https://www.google.com/maps?cid={D["cid"]}'
 ROTA = "https://www.google.com/maps/dir/?api=1&destination=" + quote(f'{D["clinica"]}, {D["rua"]}, {D["bairro"]}, {D["cidade"]} {D["uf"]}')
@@ -205,6 +205,20 @@ def faq_ld(itens):
             "mainEntity": [{"@type": "Question", "name": q,
                             "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}} for q, a in itens]}
 
+# Google Tag Manager (contêiner da Dra. Tarcila). Fora de f-string por causa das chaves do JS.
+GTM_ID = "GTM-T77Z8QKZ"
+GTM_HEAD = """<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','""" + GTM_ID + """');</script>
+<!-- End Google Tag Manager -->"""
+GTM_BODY = """<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=""" + GTM_ID + """"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->"""
+
 # ---------------------------------------------------------------- blocos comuns
 def head(titulo, desc, url, extra_ld, img_preload=None):
     lds = [ld_medica()] + extra_ld
@@ -216,6 +230,7 @@ def head(titulo, desc, url, extra_ld, img_preload=None):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{GTM_HEAD}
 <title>{e(titulo)}</title>
 <meta name="description" content="{e(desc)}">
 <meta name="robots" content="{robots}">
@@ -244,6 +259,7 @@ def head(titulo, desc, url, extra_ld, img_preload=None):
 {ld_html}
 </head>
 <body>
+{GTM_BODY}
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 <div class="progress" aria-hidden="true"><span id="progress"></span></div>
 {SPRITE}'''

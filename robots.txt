@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dratarcilabanagouro.com.br/sitemap.xml
+Sitemap: https://www.dratarcilapediatra.com.br/sitemap.xml
