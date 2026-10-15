@@ -61,6 +61,12 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px}
 .section{padding:108px 0}
 
+.section.legal{padding-top:0}
+.legal-in{max-width:720px}
+.legal-in h2{font-size:24px;margin:40px 0 14px}
+.legal-in h2:first-child{margin-top:0}
+.legal-in p{color:var(--tinta);line-height:1.7;margin:0 0 16px;max-width:68ch}
+
 .ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .ic.fill{fill:currentColor;stroke:none}
 .ic.flip{transform:scaleX(-1)}
@@ -445,6 +451,8 @@ h1 em,h2 em{font-style:italic;color:var(--blush-esc)}
 .hours b{font-weight:800;color:var(--espresso)}
 .foot-note{margin-top:14px;font-size:13px;color:var(--suave);line-height:1.55}
 .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;padding-bottom:26px;border-top:1px solid rgba(91,74,63,.16);font-size:12.5px;color:var(--suave)}
+.foot-bottom a{text-decoration:underline;text-underline-offset:2px}
+.foot-bottom a:hover{color:var(--taupe-esc)}
 
 /* ═══ WHATSAPP FLUTUANTE ═══ */
 .wa-float{position:fixed;right:22px;bottom:22px;z-index:110;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(37,211,102,.7);transition:transform .35s var(--ease)}

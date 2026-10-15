@@ -36,6 +36,7 @@ D = {
     "nota": "5,0",
     "dominio": "https://www.dratarcilapediatra.com.br",  # registrado em 13/10/2026 no CPF dela (Registro.br)
 }
+ULTIMA_ATUALIZACAO = "2026-10-15"
 GOOGLE_PERFIL = f'https://www.google.com/maps?cid={D["cid"]}'
 ROTA = "https://www.google.com/maps/dir/?api=1&destination=" + quote(f'{D["clinica"]}, {D["rua"]}, {D["bairro"]}, {D["cidade"]} {D["uf"]}')
 MAPA_EMBED = "https://www.google.com/maps?q=" + quote(f'{D["clinica"]}, {D["rua"]}, {D["bairro"]}, {D["cidade"]} {D["uf"]}') + "&z=16&hl=pt-BR&output=embed"
@@ -115,12 +116,12 @@ FORMACAO_PT = [
 ]
 
 GALERIA = [
-    ("clinica-teor-fachada.jpg", "Fachada da Clínica Teor", 880, 1100),
-    ("clinica-teor-entrada.jpg", "Entrada", 825, 1100),
-    ("clinica-teor-recepcao.jpg", "Recepção", 880, 1100),
-    ("clinica-teor-sala-de-espera.jpg", "Sala de espera", 880, 1100),
-    ("clinica-teor-corredor.jpg", "Corredor dos consultórios", 825, 1100),
-    ("clinica-teor-consultorio.jpg", "Consultório", 855, 840),
+    ("clinica-teor-fachada.webp", "Fachada da Clínica Teor", 880, 1100),
+    ("clinica-teor-entrada.webp", "Entrada", 825, 1100),
+    ("clinica-teor-recepcao.webp", "Recepção", 880, 1100),
+    ("clinica-teor-sala-de-espera.webp", "Sala de espera", 880, 1100),
+    ("clinica-teor-corredor.webp", "Corredor dos consultórios", 825, 1100),
+    ("clinica-teor-consultorio.webp", "Consultório", 855, 840),
 ]
 
 LOCAIS = [
@@ -178,8 +179,8 @@ def ld_medica():
         "@context": "https://schema.org", "@type": "Physician", "@id": ID_MEDICA,
         "name": D["nome"], "medicalSpecialty": "Pediatric",
         "description": "Pediatra em Sinop, MT. Consulta pediátrica, recém nascido, puericultura, consulta pré natal, sala de parto, atendimento domiciliar e telemedicina.",
-        "url": D["dominio"] + "/", "image": D["dominio"] + "/assets/img/dra-tarcila-pediatra-sinop.jpg",
-        "logo": D["dominio"] + "/assets/img/logo-simbolo.png",
+        "url": D["dominio"] + "/", "image": D["dominio"] + "/assets/img/dra-tarcila-pediatra-sinop.webp",
+        "logo": D["dominio"] + "/assets/img/logo-simbolo.webp",
         "telephone": "+" + D["wa"],
         "priceRange": "$$$",
         "address": {"@type": "PostalAddress", "streetAddress": D["rua"] + ", " + D["clinica"],
@@ -281,7 +282,7 @@ def header(atual=None):
 <header class="header" id="header">
   <div class="wrap header-in">
     <a class="brand" href="/" aria-label="{D["nome"]}, pediatra em Sinop. Página inicial">
-      <img src="/assets/img/logo-horizontal.png" alt="" width="303" height="66">
+      <img src="/assets/img/logo-horizontal.webp" alt="" width="303" height="66">
     </a>
     <nav class="nav" id="nav" aria-label="Principal">
       <div class="nav-item has-sub">
@@ -388,7 +389,7 @@ def footer():
 <footer class="footer">
   <div class="wrap footer-in">
     <div class="foot-brand">
-      <a href="/" aria-label="{D["nome"]}, página inicial"><img src="/assets/img/logo-horizontal.png" alt="{D["nome"]}, pediatra" width="303" height="66" loading="lazy"></a>
+      <a href="/" aria-label="{D["nome"]}, página inicial"><img src="/assets/img/logo-horizontal.webp" alt="{D["nome"]}, pediatra" width="303" height="66" loading="lazy"></a>
       <p>Pediatra em {D["cidade"]}, {D["uf"]}. Do recém nascido à adolescência, do consultório à sala de parto.</p>
       <p class="foot-crm">{D["crm"]} · {D["rqe"]}</p>
       <div class="socials">
@@ -421,6 +422,7 @@ def footer():
   <div class="wrap foot-bottom">
     <span>© <span id="ano">2026</span> {D["nome"]} · Pediatra em {D["cidade"]}, {D["uf"]}</span>
     <span>Médica responsável: {D["nome"]}, {D["crm"]}, {D["rqe"]}</span>
+    <a href="/privacidade/">Política de privacidade</a>
   </div>
 </footer>
 <a class="wa-float" href="{wa()}" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">{ico("wa")}<span class="wa-pulse" aria-hidden="true"></span></a>
@@ -465,7 +467,7 @@ def pagina_home():
   <div class="hero-pattern" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <div class="hero-id reveal"><img src="/assets/img/dra-tarcila-pediatra-sinop.jpg" alt="" width="780" height="975"><span><b>{D["nome"]}</b><small>Pediatra · {D["crm"]} · {D["rqe"]}</small></span></div>
+      <div class="hero-id reveal"><img src="/assets/img/dra-tarcila-pediatra-sinop.webp" alt="" width="780" height="975"><span><b>{D["nome"]}</b><small>Pediatra · {D["crm"]} · {D["rqe"]}</small></span></div>
       <h1 class="reveal"><span class="h1-kw">Pediatra em {D["cidade"]}, {D["uf"]}<span class="sr">. </span></span>Pediatria <em>Além do Peso e da Medida.</em></h1>
       <p class="hero-promise reveal d1">Do nascimento à adolescência, um acompanhamento que olha para seu filho por inteiro.</p>
       <p class="lede reveal d2">Crescimento, alimentação, sono, desenvolvimento, comportamento e tudo o que faz parte da vida do seu filho também têm espaço na minha consulta.</p>
@@ -482,8 +484,9 @@ def pagina_home():
     </div>
     <div class="hero-media reveal d2">
       <figure class="hero-video" id="heroFig">
-        <img class="hero-still" src="/assets/img/bebe-hero-poster.jpg" alt="Bebê sorrindo durante a consulta com a pediatra" width="832" height="464" fetchpriority="high">
+        <img class="hero-still" src="/assets/img/bebe-hero-poster.webp" alt="Bebê sorrindo durante a consulta com a pediatra" width="832" height="464" fetchpriority="high">
         <video autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" tabindex="-1" aria-hidden="true" width="832" height="464" id="heroVideo">
+          <source src="/assets/video/bebe-hero.webm" type="video/webm">
           <source src="/assets/video/bebe-hero.mp4" type="video/mp4">
         </video>
         <img class="hero-anim" data-src="/assets/img/bebe-hero-animado.webp" alt="" aria-hidden="true" width="640" height="358">
@@ -591,7 +594,7 @@ def pagina_home():
   <div class="wrap sobre-in">
     <div class="sobre-media reveal">
       <span class="shape shape-c" aria-hidden="true"></span>
-      <figure class="sobre-photo"><img src="/assets/img/dra-tarcila-consultorio-sinop.jpg" alt="{D["nome"]} no consultório da {D["clinica"]}, em {D["cidade"]}" loading="lazy" width="975" height="1300"></figure>
+      <figure class="sobre-photo"><img src="/assets/img/dra-tarcila-consultorio-sinop.webp" alt="{D["nome"]} no consultório da {D["clinica"]}, em {D["cidade"]}" loading="lazy" width="975" height="1300"></figure>
       <div class="sobre-stamp"><span class="stamp-top">Desde</span><span class="stamp-num">2017</span><span class="stamp-lbl">na pediatria</span></div>
     </div>
     <div class="sobre-copy">
@@ -662,7 +665,7 @@ def pagina_home():
     titulo = f"Pediatra em Sinop MT | {D['nome']}"
     desc = f"Pediatra em Sinop, MT. Pediatria além do peso e da medida, do nascimento à adolescência. Consulta, pré natal, sala de parto, atendimento em casa e telemedicina. {D['crm']}."
     site_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": D["nome"], "url": D["dominio"] + "/", "inLanguage": "pt-BR"}
-    return head(titulo, desc, "/", [faq_ld(FAQ_HOME), site_ld], "/assets/img/bebe-hero-poster.jpg") + header() + corpo + footer()
+    return head(titulo, desc, "/", [faq_ld(FAQ_HOME), site_ld], "/assets/img/bebe-hero-poster.webp") + header() + corpo + footer()
 
 # ---------------------------------------------------------------- páginas por palavra chave
 SUB = {
@@ -873,7 +876,7 @@ def pagina_sub(slug):
     corpo = f'''
 <section class="hero hero-sub">
   <div class="hero-pattern" aria-hidden="true"></div>
-  <img class="hero-mark" src="/assets/img/logo-simbolo.png" alt="" aria-hidden="true" width="512" height="504">
+  <img class="hero-mark" src="/assets/img/logo-simbolo.webp" alt="" aria-hidden="true" width="512" height="504">
   <div class="wrap">
     <div class="hero-copy hero-copy-sub">
       <nav class="crumbs reveal" aria-label="Você está em"><a href="/">Início</a><span aria-hidden="true">/</span><a href="/#atendimentos">Atendimentos</a><span aria-hidden="true">/</span><span aria-current="page">{rot}</span></nav>
@@ -911,7 +914,7 @@ def pagina_sub(slug):
       <a class="btn btn-1 reveal d3" href="{wa(s["msg"])}" target="_blank" rel="noopener">{ico("wa")}Agendar pelo WhatsApp</a>
     </div>
     <aside class="medica reveal d2" aria-label="Sobre a pediatra">
-      <img src="/assets/img/dra-tarcila-pediatra-sinop.jpg" alt="{D["nome"]}" width="780" height="975" loading="lazy">
+      <img src="/assets/img/dra-tarcila-pediatra-sinop.webp" alt="{D["nome"]}" width="780" height="975" loading="lazy">
       <blockquote><p>{s["citacao"]}</p></blockquote>
       <p class="medica-nome">{D["nome"]}</p>
       <p class="medica-crm">Pediatra · {D["crm"]} · {D["rqe"]}</p>
@@ -942,11 +945,52 @@ def pagina_sub(slug):
                   "audience": {"@type": "PeopleAudience", "geographicArea": {"@type": "City", "name": "Sinop"}}}
     return head(s["titulo"], s["desc"], f"/{slug}/", [faq_ld(s["faq"]), crumbs_ld, servico_ld]) + header(slug) + corpo + footer()
 
+def pagina_privacidade():
+    corpo = f'''
+<section class="hero hero-sub hero-404">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <img class="hero-mark" src="/assets/img/logo-simbolo.webp" alt="" aria-hidden="true" width="512" height="504">
+  <div class="wrap">
+    <div class="hero-copy hero-copy-sub">
+      <p class="kicker">Privacidade</p>
+      <h1>Política de privacidade <span class="h1-sub">Como este site trata os dados de quem visita</span></h1>
+      <p class="lede">Última atualização em 15 de outubro de 2026.</p>
+    </div>
+  </div>
+</section>
+<section class="section legal">
+  <div class="wrap legal-in">
+    <h2>Quem é responsável por este site</h2>
+    <p>Este site pertence à {D["nome"]}, {D["crm"]}, {D["rqe"]}, pediatra em {D["cidade"]}, {D["uf"]}. Para qualquer pedido relacionado a esta política, fale pelo WhatsApp {D["tel_txt"]}.</p>
+
+    <h2>O que este site não faz</h2>
+    <p>Não há formulário de cadastro, de contato nem de agendamento neste site. Todo pedido de consulta leva ao WhatsApp, fora deste site, onde a conversa acontece dentro do próprio aplicativo. Nenhum dado de saúde, prontuário ou histórico de paciente é guardado ou processado por este site.</p>
+
+    <h2>O que este site coleta</h2>
+    <p>Usamos o Google Tag Manager e o Google Analytics para entender quantas pessoas visitam o site, quais páginas veem e de onde vieram (busca, redes sociais, anúncio). Essas ferramentas usam cookies e coletam dados como endereço IP, tipo de dispositivo, navegador e páginas visitadas, de forma agregada, sem identificar a pessoa pelo nome.</p>
+    <p>Quando alguém toca em um botão de WhatsApp, registramos esse clique como um evento de contato, para medir se o site e os anúncios estão funcionando. Não temos acesso ao conteúdo da conversa que acontece depois, dentro do WhatsApp.</p>
+    <p>Não usamos publicidade personalizada nem remarketing. Essa opção fica desligada de propósito, por se tratar de um site da área da saúde.</p>
+
+    <h2>Cookies</h2>
+    <p>Os cookies usados aqui são os do Google Analytics e do Google Ads. Quem preferir não ser medido pode bloquear cookies nas configurações do navegador ou instalar o complemento de desativação do Google Analytics, disponível no site do Google.</p>
+
+    <h2>Compartilhamento</h2>
+    <p>Os dados de navegação coletados pelo Google Analytics e pelo Google Ads são tratados pelo Google, conforme a política de privacidade da própria empresa. Este site não vende nem repassa dados a outros terceiros.</p>
+
+    <h2>Direitos de quem visita o site</h2>
+    <p>Pela Lei Geral de Proteção de Dados, qualquer pessoa pode pedir confirmação de que dados existem, acesso a eles, correção, anonimização, portabilidade, eliminação ou informação sobre com quem foram compartilhados, além de poder retirar a concordância a qualquer momento. Esses pedidos podem ser feitos pelo WhatsApp {D["tel_txt"]}.</p>
+
+    <h2>Alterações nesta política</h2>
+    <p>Esta política pode ser atualizada quando o site mudar a forma como mede visitas ou anúncios. A data no topo desta página mostra a última atualização.</p>
+  </div>
+</section>'''
+    return head(f"Política de privacidade | {D['nome']}", f"Como o site de {D['nome']} trata os dados de quem visita: o que é coletado pelo Google Analytics, cookies e os direitos garantidos pela Lei Geral de Proteção de Dados.", "/privacidade", []) + header() + corpo + footer()
+
 def pagina_404():
     corpo = f'''
 <section class="hero hero-sub hero-404">
   <div class="hero-pattern" aria-hidden="true"></div>
-  <img class="hero-mark" src="/assets/img/logo-simbolo.png" alt="" aria-hidden="true" width="512" height="504">
+  <img class="hero-mark" src="/assets/img/logo-simbolo.webp" alt="" aria-hidden="true" width="512" height="504">
   <div class="wrap">
     <div class="hero-copy hero-copy-sub">
       <p class="kicker">Página não encontrada</p>
@@ -964,12 +1008,17 @@ def pagina_404():
 
 # ---------------------------------------------------------------- arquivos de apoio
 def sitemap():
-    urls = ["/"] + [f"/{a[0]}/" for a in ATEND]
-    itens = "\n".join(f"  <url><loc>{D['dominio']}{u}</loc><changefreq>monthly</changefreq><priority>{'1.0' if u == '/' else '0.8'}</priority></url>" for u in urls)
+    urls = [("/", "1.0")] + [(f"/{a[0]}/", "0.8") for a in ATEND] + [("/privacidade/", "0.3")]
+    itens = "\n".join(f"  <url><loc>{D['dominio']}{u}</loc><lastmod>{ULTIMA_ATUALIZACAO}</lastmod><changefreq>monthly</changefreq><priority>{p}</priority></url>" for u, p in urls)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{itens}\n</urlset>\n'
 
 def robots():
-    return f"User-agent: *\nAllow: /\n\nSitemap: {D['dominio']}/sitemap.xml\n"
+    # Allow explícito para os crawlers de IA mais comuns, além do catch-all: ajuda a pesquisa
+    # por IA (GEO) a confirmar que este site pode ser lido e citado.
+    agentes_ia = ["GPTBot", "ChatGPT-User", "Google-Extended", "PerplexityBot", "ClaudeBot",
+                  "anthropic-ai", "CCBot", "Applebot-Extended"]
+    blocos_ia = "\n".join(f"User-agent: {a}\nAllow: /\n" for a in agentes_ia)
+    return f"User-agent: *\nAllow: /\n\n{blocos_ia}\nSitemap: {D['dominio']}/sitemap.xml\n"
 
 def vercel():
     headers = [{"source": "/assets/(.*)", "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]}]
@@ -989,7 +1038,8 @@ def texto_visivel(doc):
     return H.unescape(re.sub(r"<[^>]+>", " ", doc) + " " + attrs)
 
 if __name__ == "__main__":
-    paginas = {os.path.join(BASE, "index.html"): pagina_home(), os.path.join(BASE, "404.html"): pagina_404()}
+    paginas = {os.path.join(BASE, "index.html"): pagina_home(), os.path.join(BASE, "404.html"): pagina_404(),
+               os.path.join(BASE, "privacidade", "index.html"): pagina_privacidade()}
     for slug, *_ in ATEND:
         paginas[os.path.join(BASE, slug, "index.html")] = pagina_sub(slug)
     problemas = 0
